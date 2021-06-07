@@ -1,38 +1,103 @@
-.App {
-  text-align: center;
+body {
+  margin: 0;
+  padding: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.image {
+  position: relative;
+  overflow: hidden;
+  background-color: #000;
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 31.25rem;
+  cursor: pointer;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.image span {
+  position: relative;
+  z-index: 1;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.zoom-in::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: inherit;
+  background-size: cover;
+  transform-origin: center;
+  transition: transform 0.4s ease-in-out;
 }
 
-.App-link {
-  color: #61dafb;
+.zoom-in:focus::after, .zoom-in:hover::after {
+  transform: scale(1.1);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+Button {
+  margin: 3px;
+}
+
+.modal {
+  top: '35%';
+  left: '50%';
+  right: 'auto';
+  bottom: 'auto';
+  margin-right: '-50%';
+  width: '60%';
+  transform: 'translate(-40%, -10%)';
+}
+.modal-body {
+
+  text-align: left;
+}
+input, select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.card-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(255, 255, 255, 0.6);
+  height: 7rem;
+  width: 100%;
+  z-index: 2;
+  padding: 0.625rem;
+}
+
+.card-info span {
+  font-family: "Trebuchet MS";
+  color: #111;
+  display: block;
+  font-size: 1.5rem;
+  padding-bottom: 1.125rem;
+}
+
+.base-price {
+  font-family: "Trebuchet MS";
+  font-size: 0.688rem;
+  text-decoration: line-through;
+  line-height: 0.125rem;
+  color: rgb(175, 10, 10);
+  width: 7.5rem;
+  float: right;
+  text-align: left;
+}
+
+.price {
+  font-family: "Trebuchet MS";
+  font-size: 1.5rem;
+  width: 7.5rem;
+  float: right;
+  text-align: left;
+  clear: both;
 }
